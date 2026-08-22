@@ -18,7 +18,7 @@
   "@type":"Bakery",
   "name":"산도리 sandoli",
   "url":"https://sandoli.kr/",
-  "telephone":"+82-10-2761-0328",
+  "telephone":"+82-10-8793-4047",
   "address":{
     "@type":"PostalAddress",
     "streetAddress":"국채보상로 553 1층",
@@ -59,32 +59,33 @@ section{padding:86px 0;border-top:1px solid var(--line)}
 .section-head{text-align:center;margin-bottom:38px}
 .section-head .label{font:700 11px var(--mono);letter-spacing:1.8px;color:#6f675e;margin-bottom:10px}
 .section-head h2{margin:0;font:700 clamp(32px,4vw,54px)/1.1 var(--mono);letter-spacing:-1.5px}
-.section-head p{margin:12px auto 0;max-width:760px;color:var(--muted);font-size:15px}
+.section-head p{margin:12px auto 0;max-width:760px;color:var(--muted);font-size:15px;word-break:keep-all}
 
 .hero{padding:0;border-top:none}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;min-height:680px;align-items:stretch}
-.hero-copy{padding:80px 34px 70px 8px;display:flex;flex-direction:column;justify-content:center}
+.hero-copy{padding:80px 34px 70px 8px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.hero-art{min-width:0}
 .hero-copy .eyebrow{font:700 11px var(--mono);letter-spacing:1.8px;color:#6e685d;margin-bottom:18px}
-.hero-copy h1{margin:0;font:700 clamp(34px,6vw,70px)/1.02 var(--mono);letter-spacing:-2px}
-.hero-copy .sub{margin:16px 0 0;font-size:15px;color:var(--muted);max-width:480px;line-height:1.95}
+.hero-copy h1{margin:0;max-width:9.8em;font-family:var(--sans);font-size:clamp(38px,4.25vw,62px);font-weight:750;line-height:1.16;letter-spacing:-2.8px;word-break:keep-all;overflow-wrap:normal;text-wrap:balance}
+.hero-copy .sub{margin:20px 0 0;font-size:15px;color:var(--muted);max-width:510px;line-height:1.95;word-break:keep-all}
 .hero-copy .link{margin-top:26px;display:inline-flex;align-items:center;gap:10px;font:700 11px var(--mono);letter-spacing:1px;padding-bottom:5px;border-bottom:1px solid var(--ink);width:max-content}
 .hero-art{position:relative;overflow:hidden;background:var(--paper-soft)}
 .hero-art img{width:100%;height:100%;object-fit:cover}
 .hero-copy-box{margin-top:24px;padding:16px 18px;background:rgba(250,247,241,.72);border:1px solid rgba(45,42,36,.08);box-shadow:var(--shadow);max-width:420px}
 .hero-copy-box b{display:block;font:700 10px var(--mono);letter-spacing:1.4px;margin-bottom:6px}
-.hero-copy-box span{font-size:14px;color:#575148}
+.hero-copy-box span{font-size:14px;color:#575148;word-break:keep-all}
 
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
 .story-image{background:rgba(255,255,255,.45);box-shadow:var(--shadow);overflow:hidden}
 .story-image img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
 .story-copy h3{margin:0 0 12px;font:700 clamp(24px,3vw,38px)/1.15 var(--mono)}
-.story-copy p{margin:10px 0;color:#5f5850}
+.story-copy p{margin:10px 0;color:#5f5850;word-break:keep-all}
 .story-copy .hand{margin-top:14px;font:400 24px var(--hand);color:#6d7f5a}
 
 .philosophy{text-align:center;background:rgba(255,255,255,.24)}
 .formula{font:700 clamp(34px,4.5vw,58px)/1.1 var(--mono);letter-spacing:-1px;margin:0}
 .formula .plus,.formula .eq{color:var(--accent)}
-.philosophy p{max-width:820px;margin:18px auto 0;color:#5f5950;font-size:15px;line-height:1.95}
+.philosophy p{max-width:820px;margin:18px auto 0;color:#5f5950;font-size:15px;line-height:1.95;word-break:keep-all}
 
 .fruit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .fruit-card{background:rgba(251,248,242,.88);border:1px solid rgba(45,42,36,.08);box-shadow:var(--shadow);padding:18px 18px 16px;display:flex;flex-direction:column;min-height:310px}
@@ -121,7 +122,7 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
   .hero-grid,.story-grid,.takeout-grid,.menu-grid,.fruit-grid{grid-template-columns:1fr 1fr}
   .hero-grid{grid-template-columns:1fr}
   .hero-art{min-height:340px}
-  .hero-copy{padding:48px 0 34px}
+  .hero-copy{padding:48px 0 34px}.hero-copy h1{font-size:clamp(38px,7vw,54px);max-width:12em}
 }
 @media (max-width: 680px){
   .wrap{width:min(100% - 26px, 1180px)}
@@ -131,7 +132,7 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
   .story-grid,.takeout-grid,.menu-grid,.fruit-grid{grid-template-columns:1fr}
   .fruit-card{min-height:auto}
   .section-head h2{letter-spacing:-1px}
-  .hero-copy-box{max-width:none}
+  .hero-copy-box{max-width:none}.hero-copy h1{font-size:clamp(34px,10vw,46px);line-height:1.18;letter-spacing:-2px;max-width:100%}
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 </style>
@@ -142,8 +143,8 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
     <a class="brand" href="#top"><img src="assets/logo_en.png" alt="Sandoli"><small>FRUIT SANDO / TAKE OUT</small></a>
     <nav>
       <a href="#story">Story</a>
-      <a href="#philosophy">Brand</a>
-      <a href="#fruits">Fruits</a>
+      <a href="#philosophy">Our way</a>
+      <a href="#fruits">Season</a>
       <a href="#menu">Menu</a>
       <a href="#takeout">Take out</a>
     </nav>
@@ -154,11 +155,11 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow">SANDOLI / WATERCOLOR HOME</div>
-        <h1>좋은 과일의 순간을<br>가볍게 들고 가는 곳.</h1>
-        <p class="sub">산도리는 대구 종로의 <b>테이크아웃 전문점</b>입니다. 제철 과일의 가장 좋은 순간을 골라 산도, 모찌산도, 과일모찌에 담아냅니다. 이번 버전은 수채화처럼 번지는 자연의 분위기와 부드러운 과일 일러스트를 중심으로 정리했습니다.</p>
-        <a class="link" href="#fruits">SEASONAL FRUITS →</a>
-        <div class="hero-copy-box"><b>TAKE OUT NOTE</b><span>매장 사진보다 과일과 자연의 인상을 먼저 보여주고, 브랜드 감성을 편안하게 전하는 방향으로 구성했습니다.</span></div>
+        <div class="eyebrow">SANDOLI / FRUIT SANDO & MOCHI</div>
+        <h1>과일이 가장 맛있는 순간을, 산도리에 담습니다.</h1>
+        <p class="sub">대구 중구 종로의 <b>과일산도 · 과일모찌 테이크아웃 전문점 산도리</b>입니다. 계절마다 가장 맛있는 과일을 골라 부드러운 시트와 크림, 쫀득한 모찌와 함께 준비합니다.</p>
+        <a class="link" href="#fruits">오늘의 과일 보기 →</a>
+        <div class="hero-copy-box"><b>TODAY'S LINEUP</b><span>판매 과일과 라인업은 계절과 당일 수급에 따라 달라집니다. 준비한 수량이 소진되면 조금 일찍 마감될 수 있어요.</span></div>
       </div>
       <div class="hero-art"><img src="assets/watercolor_orchard.png" alt="수채화 과수원"></div>
     </div>
@@ -169,9 +170,9 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
       <div class="story-image"><img src="assets/watercolor_orchard.png" alt="과수원 풍경"></div>
       <div class="story-copy">
         <h3>The Story Behind Sandoli</h3>
-        <p>무엇이 가장 맛있는 과일인지 알고 싶었고, 그걸 어떻게, 언제 전해야 가장 좋을지도 계속 고민했습니다.</p>
-        <p>산도리는 좋은 과일을 고르고 기록하면서, 누구나 제철 과일을 가장 편하게 즐길 수 있는 방법을 생각하는 브랜드입니다.</p>
-        <p>매장 자체를 크게 보여주기보다, 과일과 계절의 인상을 먼저 전하고, 마지막에 테이크아웃 정보가 자연스럽게 이어지도록 구성했습니다.</p>
+        <p>산도리는 <b>좋은 과일이 좋은 디저트의 시작</b>이라고 생각합니다.</p>
+        <p>당도만 높은 과일보다는 향, 식감, 숙도까지 살펴 그날 가장 맛있게 느껴지는 과일을 고릅니다. 그리고 과일의 풍미가 묻히지 않도록 시트와 크림의 밸런스를 맞춰 하나씩 만듭니다.</p>
+        <p>봄의 딸기, 여름의 복숭아와 멜론, 가을의 샤인머스켓처럼 계절이 바뀌면 산도리의 쇼케이스도 함께 달라집니다.</p>
         <div class="hand">fruit first. softly assembled.</div>
       </div>
     </div>
@@ -180,9 +181,9 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
   <section id="philosophy" class="philosophy">
     <div class="wrap">
       <div class="section-head">
-        <div class="label">BRAND PHILOSOPHY</div>
-        <h2 class="formula">Preference <span class="plus">+</span> Fruit <span class="eq">=</span> Sandoli</h2>
-        <p>Prefruit에서 좋았던 수채화 같은 감성과 자연 중심의 여백을 참고하되, 산도리답게 더 부드럽고 친근한 인상으로 다시 정리했습니다. 과일은 기하학 도형 대신 실제 수채화 일러스트를 사용해, 홈페이지 전체가 하나의 브랜드 북처럼 보이도록 구성했습니다.</p>
+        <div class="label">OUR WAY</div>
+        <h2 class="formula">Season <span class="plus">+</span> Fruit <span class="eq">=</span> Sandoli</h2>
+        <p>산도리의 메뉴는 계절을 따라갑니다. 가장 좋은 과일이 들어오는 시기에 그 과일을 가장 잘 느낄 수 있는 산도와 모찌를 준비합니다. 과일은 듬뿍, 크림은 과하지 않게. 한입 먹었을 때 무엇보다 먼저 과일이 느껴지는 균형을 중요하게 생각합니다.</p>
       </div>
     </div>
   </section>
@@ -191,18 +192,18 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
     <div class="wrap">
       <div class="section-head">
         <div class="label">SEASONAL FRUITS</div>
-        <h2>수채화 과일 도감</h2>
-        <p>기하학적인 도형 대신, 실제로 그린 듯한 수채화 과일 일러스트로 교체했습니다. 요청해준 대로 <b>샤인머스켓</b>, <b>애플망고</b>, <b>바나나</b>도 포함했습니다.</p>
+        <h2>이 계절, 산도리가 고르는 과일들</h2>
+        <p>산도리의 라인업은 늘 같지 않습니다. 계절과 산지, 당일 과일 상태에 따라 가장 맛있는 과일을 골라 준비합니다. 아래 과일들은 산도리에서 자주 만날 수 있는 대표 과일들이에요.</p>
       </div>
       <div class="fruit-grid">
-        <article class="fruit-card"><div class="art"><img src="assets/strawberry.png" alt="딸기"></div><h3>strawberry</h3><div class="ko">딸기</div><p>향긋한 산미와 달콤함이 균형 잡힌 산도리의 대표 과일.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/orange.png" alt="오렌지"></div><h3>orange</h3><div class="ko">오렌지</div><p>밝고 경쾌한 색감과 과즙감을 더해주는 상큼한 계열의 과일.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/kiwi.png" alt="키위"></div><h3>kiwi</h3><div class="ko">키위</div><p>산뜻한 산미와 선명한 단면이 인상적인 초록빛 포인트.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/peach.png" alt="복숭아"></div><h3>peach</h3><div class="ko">복숭아</div><p>부드럽고 향긋한 여름의 인상을 담아주는 산도리의 계절 과일.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/shine_muscat.png" alt="샤인머스켓"></div><h3>shine muscat</h3><div class="ko">샤인머스켓</div><p>맑고 산뜻한 단맛과 톡톡한 식감이 살아 있는 초록 포도 계열.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/fig.png" alt="무화과"></div><h3>fig</h3><div class="ko">무화과</div><p>은은하게 퍼지는 달콤함과 깊은 향이 매력적인 시즌 과일.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/apple_mango.png" alt="애플망고"></div><h3>apple mango</h3><div class="ko">애플망고</div><p>짙은 향과 부드러운 단맛으로 모찌와도 잘 어울리는 과일.</p><div class="more">MORE →</div></article>
-        <article class="fruit-card"><div class="art"><img src="assets/banana.png" alt="바나나"></div><h3>banana</h3><div class="ko">바나나</div><p>편안하고 익숙한 달콤함을 더해주는 부드러운 조합의 기본 과일.</p><div class="more">MORE →</div></article>
+        <article class="fruit-card"><div class="art"><img src="assets/strawberry.png" alt="딸기"></div><h3>strawberry</h3><div class="ko">딸기</div><p>향긋한 향과 산뜻한 산미가 살아 있는 산도리의 대표 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/orange.png" alt="오렌지"></div><h3>orange</h3><div class="ko">오렌지</div><p>풍부한 과즙과 상큼한 향이 매력적인 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/kiwi.png" alt="키위"></div><h3>kiwi</h3><div class="ko">키위</div><p>톡톡 씹히는 씨와 산뜻한 산미가 매력적인 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/peach.png" alt="복숭아"></div><h3>peach</h3><div class="ko">복숭아</div><p>향긋하고 부드러운 과육을 살려 여름에 특히 많이 찾는 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/shine_muscat.png" alt="샤인머스켓"></div><h3>shine muscat</h3><div class="ko">샤인머스켓</div><p>아삭한 식감과 맑은 단맛이 살아 있는 가을의 대표 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/fig.png" alt="무화과"></div><h3>fig</h3><div class="ko">무화과</div><p>부드러운 식감과 깊은 단맛이 특징인 늦여름·가을의 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/apple_mango.png" alt="애플망고"></div><h3>apple mango</h3><div class="ko">애플망고</div><p>진한 향과 부드러운 과육이 산도와 모찌 모두에 잘 어울리는 과일.</p></article>
+        <article class="fruit-card"><div class="art"><img src="assets/banana.png" alt="바나나"></div><h3>banana</h3><div class="ko">바나나</div><p>부드러운 단맛이 초콜릿이나 크림과 특히 잘 어울리는 과일.</p></article>
       </div>
     </div>
   </section>
@@ -210,9 +211,9 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
   <section id="menu">
     <div class="wrap">
       <div class="section-head">
-        <div class="label">SIGNATURE MENU</div>
-        <h2>산도리 메뉴</h2>
-        <p>매장 사진을 크게 드러내기보다, 과일의 이미지를 중심에 두고 메뉴가 자연스럽게 기억되도록 정리했습니다.</p>
+        <div class="label">OUR MENU</div>
+        <h2>과일을 즐기는 세 가지 방법</h2>
+        <p>부드러운 과일산도부터 쫀득한 점보모찌산도, 한입 크기의 과일모찌까지. 그날 준비한 과일에 따라 메뉴가 조금씩 달라집니다.</p>
       </div>
       <div class="menu-grid">
         <article class="menu-card">
@@ -222,14 +223,14 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
           <div class="mini-fruits"><img src="assets/strawberry.png" alt=""><img src="assets/peach.png" alt=""><img src="assets/shine_muscat.png" alt=""></div>
         </article>
         <article class="menu-card">
-          <div class="top"><h3>MOCHI<br>SANDO</h3><div class="price">SIGNATURE</div></div>
-          <p>쫀득한 모찌 식감과 과일의 과즙이 겹쳐지는 산도리의 시그니처 점보모찌산도.</p>
+          <div class="top"><h3>JUMBO<br>MOCHI SANDO</h3><div class="price">SIGNATURE</div></div>
+          <p>과일과 크림, 쫀득한 모찌를 한 번에 즐기는 산도리의 시그니처 점보모찌산도.</p>
           <div class="chips"><span>애플망고</span><span>멜론</span><span>바나나</span><span>무화과</span></div>
           <div class="mini-fruits"><img src="assets/apple_mango.png" alt=""><img src="assets/banana.png" alt=""><img src="assets/fig.png" alt=""></div>
         </article>
         <article class="menu-card">
           <div class="top"><h3>FRUIT<br>MOCHI</h3><div class="price">DAILY</div></div>
-          <p>과일 자체의 인상을 한입 크기로 가볍게 즐길 수 있는 과일모찌 라인업.</p>
+          <p>애플망고, 멜론, 골드키위 등 제철 과일을 쫀득한 모찌에 담은 한입 디저트.</p>
           <div class="chips"><span>키위</span><span>오렌지</span><span>샤인머스켓</span><span>애플망고</span></div>
           <div class="mini-fruits"><img src="assets/kiwi.png" alt=""><img src="assets/orange.png" alt=""><img src="assets/apple_mango.png" alt=""></div>
         </article>
@@ -240,21 +241,22 @@ footer{padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color
   <section id="takeout" class="takeout">
     <div class="wrap takeout-grid">
       <div class="note">
-        <h3>Take out first.</h3>
-        <p>우리는 테이크아웃 전문점이라 매장 사진을 크게 강조하지 않고, 과일과 계절의 분위기를 앞세웠습니다. 첫 화면부터 자연의 인상이 먼저 보이고, 마지막에 필요한 방문 정보가 정리되는 흐름으로 구성했습니다.</p>
+        <h3>Visit Sandoli</h3>
+        <p>산도리는 테이크아웃 중심으로 운영합니다. 당일 준비한 메뉴는 한정 수량이며, 과일과 재료가 모두 소진되면 영업시간보다 일찍 마감될 수 있습니다. 방문 전 Instagram에서 당일 라인업을 확인해 주세요.</p>
       </div>
       <div class="info-card">
         <div class="row"><b>SHOP</b><p>산도리 Sando.li</p></div>
         <div class="row"><b>TYPE</b><p>과일산도 · 점보모찌산도 · 과일모찌 / 테이크아웃 전문</p></div>
+        <div class="row"><b>ORDER</b><p>현재 방문 구매로 운영하고 있습니다.</p></div>
         <div class="row"><b>PLACE</b><p>대구광역시 중구 국채보상로 553 1층</p></div>
         <div class="row"><b>HOUR</b><p>금 · 토 · 일 · 월 12:00 - 16:00<br><small>재료 소진 시 조기 마감될 수 있습니다.</small></p></div>
-        <div class="row"><b>PHONE</b><p><a href="tel:+821027610328">010-2761-0328</a></p></div>
+        <div class="row"><b>PHONE</b><p><a href="tel:+821087934047">010-8793-4047</a></p></div>
         <div class="row"><b>LINK</b><p><a href="https://www.instagram.com/sandoli_jr/" target="_blank" rel="noopener">Instagram @sandoli_jr ↗</a><br><a href="https://map.naver.com/p/search/%EC%82%B0%EB%8F%84%EB%A6%AC%20%EB%8C%80%EA%B5%AC" target="_blank" rel="noopener">Naver Map에서 산도리 찾기 ↗</a></p></div>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
         <a href="https://www.instagram.com/sandoli_jr/" target="_blank" rel="noopener" style="font:700 11px var(--mono);border-bottom:1px solid var(--ink);padding-bottom:4px">INSTAGRAM ↗</a>
         <a href="https://map.naver.com/p/search/%EC%82%B0%EB%8F%84%EB%A6%AC%20%EB%8C%80%EA%B5%AC" target="_blank" rel="noopener" style="font:700 11px var(--mono);border-bottom:1px solid var(--ink);padding-bottom:4px">NAVER MAP ↗</a>
-        <a href="tel:+821027610328" style="font:700 11px var(--mono);border-bottom:1px solid var(--ink);padding-bottom:4px">CALL ↗</a>
+        <a href="tel:+821087934047" style="font:700 11px var(--mono);border-bottom:1px solid var(--ink);padding-bottom:4px">CALL ↗</a>
       </div>
     </div>
   </section>

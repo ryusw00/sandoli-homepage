@@ -44,12 +44,14 @@
 .intro{position:fixed;inset:0;z-index:9999;background:var(--paper);display:none;place-items:center;overflow:hidden;opacity:1;visibility:visible;transition:opacity .65s ease,visibility .65s ease}
 .intro.is-loading,.intro.is-playing{display:grid}
 .intro.is-loading .intro-brand,.intro.is-loading .intro-photo{visibility:hidden;animation:none}
-.intro.is-loading .intro-trace,.intro.is-loading .intro-word,.intro.is-loading .intro-wipe{animation:none}
+.intro.is-loading .intro-mark-original, .intro.is-loading .intro-trace,.intro.is-loading .intro-word,.intro.is-loading .intro-wipe{animation:none}
 .intro.done{opacity:0;visibility:hidden;pointer-events:none}
 .intro-inner{position:relative;width:100%;height:100%;display:grid;place-items:center}
 .intro-brand{width:clamp(220px,44vw,380px);display:flex;flex-direction:column;align-items:center;gap:12px;animation:brandLift .8s 5.45s cubic-bezier(.2,.8,.2,1) both}
 .intro-mark{display:block;width:100%;height:auto;overflow:visible}
-.intro-trace{fill:none;stroke:#fff;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;visibility:hidden;animation:drawSquare var(--draw-duration) var(--draw-delay) linear forwards}
+.intro-trace{fill:none;stroke:var(--ink);stroke-width:14;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;visibility:hidden;animation:drawSquare var(--draw-duration) var(--draw-delay) linear forwards}
+.intro-mark-original{opacity:0;animation:restoreLogoInk .12s 1.35s linear forwards}
+@keyframes restoreLogoInk{to{opacity:1}}
 @keyframes drawSquare{from{visibility:visible;stroke-dashoffset:1}to{visibility:visible;stroke-dashoffset:0}}
 .intro-words{position:relative;width:76%;aspect-ratio:360/150}
 .intro-word{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
@@ -121,7 +123,7 @@ footer{padding:52px 0 28px;border-top:1px solid var(--line);color:var(--ink)}
 
 @media(max-width:950px){.photo-grid{grid-template-columns:repeat(2,1fr)}.section-head{align-items:flex-start}}
 @media(max-width:620px){.wrap{width:calc(100% - 28px)}.header-inner{height:64px}.brand img{height:24px}nav{gap:16px;font-size:14px}.hero-gallery{aspect-ratio:4/3}.store-controls{padding:8px 12px;gap:6px;flex-wrap:wrap}.hero-dots{gap:6px}.hero-dot{width:24px}.store-counter{font-size:14px}.store-actions{gap:0}.store-actions button{min-width:40px}.store-actions .store-pause{padding:0 6px}.philosophy{padding:78px 22px}.philosophy h1{font-size:35px}.philosophy-copy{font-size:16px}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:14px}.photo-grid{grid-template-columns:1fr;gap:28px}.photo-open{aspect-ratio:3/2}.photo-meta{padding-top:9px}.story-band{grid-template-columns:1fr}.lightbox{padding:12px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro,.intro-brand,.intro-trace,.intro-word,.intro-wipe,.intro-photo{animation:none!important;transition:none!important}.intro-trace{stroke-dashoffset:0;visibility:visible}.intro-wipe{width:360px}.intro-word.en,.intro-word.jp,.intro-photo{display:none}.intro-word.kr{opacity:1}.hero-slide,.photo-open img{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro,.intro-brand,.intro-trace,.intro-word,.intro-wipe,.intro-photo{animation:none!important;transition:none!important}.intro-trace{stroke-dashoffset:0;visibility:visible}.intro-mark-original{animation:none!important;opacity:1}.intro-wipe{width:360px}.intro-word.en,.intro-word.jp,.intro-photo{display:none}.intro-word.kr{opacity:1}.hero-slide,.photo-open img{transition:none}}
 </style>
 </head>
 <body>
@@ -135,13 +137,19 @@ footer{padding:52px 0 28px;border-top:1px solid var(--line);color:var(--ink)}
           <filter id="logoInk" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
             <feColorMatrix type="matrix" values="0 0 0 0 .176  0 0 0 0 .161  0 0 0 0 .137  -1 -1 -1 0 2.2"/>
           </filter>
-          <mask id="squareDrawing" maskUnits="userSpaceOnUse" x="113" y="126" width="518" height="388">
-            <path class="intro-trace" pathLength="1" style="--draw-duration:1.250000000s;--draw-delay:0.100000000s" d="M 231,494 L 223,148 L 560,143 L 560,493 Z"/>
-            <path class="intro-trace" pathLength="1" style="--draw-duration:0.919558723s;--draw-delay:0.430441277s" d="M 324,494 L 326,284 L 614,284 L 618,494 Z"/>
-            <path class="intro-trace" pathLength="1" style="--draw-duration:0.757226676s;--draw-delay:0.592773324s" d="M 135,495 L 132,373 L 420,365 L 421,494 Z"/>
+          <!-- Clip drawing ink to the source silhouette, never reveal the full image with a broad moving brush. -->
+          <mask id="squareInk" maskUnits="userSpaceOnUse" x="113" y="126" width="518" height="388" style="mask-type:alpha">
+            <image href="assets/logo_kr.png" width="750" height="750" filter="url(#logoInk)"/>
           </mask>
+          <clipPath id="squareMarkBounds"><rect x="113" y="126" width="518" height="388"/></clipPath>
         </defs>
-        <g mask="url(#squareDrawing)"><image href="assets/logo_kr.png" width="750" height="750" filter="url(#logoInk)"/></g>
+        <g mask="url(#squareInk)">
+          <path class="intro-trace" pathLength="1" style="--draw-duration:1.250000000s;--draw-delay:0.100000000s" d="M 231,494 L 223,148 L 560,143 L 560,493 Z"/>
+          <path class="intro-trace" pathLength="1" style="--draw-duration:0.919558723s;--draw-delay:0.430441277s" d="M 324,494 L 326,284 L 614,284 L 618,494 Z"/>
+          <path class="intro-trace" pathLength="1" style="--draw-duration:0.757226676s;--draw-delay:0.592773324s" d="M 135,495 L 132,373 L 420,365 L 421,494 Z"/>
+        </g>
+        <!-- Restore every hand-drawn edge only after all three paths have finished. -->
+        <image class="intro-mark-original" href="assets/logo_kr.png" width="750" height="750" filter="url(#logoInk)" clip-path="url(#squareMarkBounds)"/>
       </svg>
       <div class="intro-words">
         <!-- The supplied English PNG duplicates the Japanese logo. Use live lettering until an English original is supplied. -->

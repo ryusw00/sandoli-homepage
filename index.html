@@ -44,12 +44,14 @@
 .intro{position:fixed;inset:0;z-index:9999;background:var(--paper);display:none;place-items:center;overflow:hidden;opacity:1;visibility:visible;transition:opacity .65s ease,visibility .65s ease}
 .intro.is-loading,.intro.is-playing{display:grid}
 .intro.is-loading .intro-brand,.intro.is-loading .intro-photo{visibility:hidden;animation:none}
-.intro.is-loading .intro-trace,.intro.is-loading .intro-word,.intro.is-loading .intro-wipe{animation:none}
+.intro.is-loading .intro-mark-original, .intro.is-loading .intro-trace,.intro.is-loading .intro-word,.intro.is-loading .intro-wipe{animation:none}
 .intro.done{opacity:0;visibility:hidden;pointer-events:none}
 .intro-inner{position:relative;width:100%;height:100%;display:grid;place-items:center}
 .intro-brand{width:clamp(220px,44vw,380px);display:flex;flex-direction:column;align-items:center;gap:12px;animation:brandLift .8s 5.45s cubic-bezier(.2,.8,.2,1) both}
 .intro-mark{display:block;width:100%;height:auto;overflow:visible}
-.intro-trace{fill:none;stroke:#fff;stroke-width:25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;visibility:hidden;animation:drawSquare var(--draw-duration) var(--draw-delay) linear forwards}
+.intro-trace{fill:none;stroke:var(--ink);stroke-width:14;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;visibility:hidden;animation:drawSquare var(--draw-duration) var(--draw-delay) linear forwards}
+.intro-mark-original{opacity:0;animation:restoreLogoInk .12s 1.35s linear forwards}
+@keyframes restoreLogoInk{to{opacity:1}}
 @keyframes drawSquare{from{visibility:visible;stroke-dashoffset:1}to{visibility:visible;stroke-dashoffset:0}}
 .intro-words{position:relative;width:76%;aspect-ratio:360/150}
 .intro-word{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
@@ -98,7 +100,8 @@ header{position:sticky;top:0;z-index:40;background:rgba(244,239,230,.9);backdrop
 .philosophy-copy{max-width:620px;margin:auto;font-size:17px;line-height:2.05;color:var(--muted)}
 .philosophy-copy p{margin:0 0 22px}.philosophy-copy p:last-child{margin-bottom:0}
 .philosophy-signature{margin:38px 0 0;font:24px "Segoe Print","Bradley Hand",cursive}
-#sando{scroll-margin-top:72px}
+#sando,#mochi{scroll-margin-top:80px}
+#mochi .photo-open{aspect-ratio:1/1}
 
 .section{padding:92px 0;border-top:1px solid var(--line)} .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:36px} .section-head small{font:700 11px var(--mono);letter-spacing:.16em;color:#7c7469} .section-head h2{margin:7px 0 0;font-size:clamp(32px,3.8vw,50px);line-height:1.15;letter-spacing:-.04em} .section-head p{max-width:430px;margin:0;color:var(--muted);font-size:14px;line-height:1.8}
 .photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px} .photo-card{min-width:0} .photo-open{display:block;width:100%;border:0;padding:0;background:#ddd5c9;cursor:zoom-in;overflow:hidden;aspect-ratio:3/2} .photo-open img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease} .photo-open:hover img{transform:scale(1.025)} .photo-meta{display:flex;align-items:baseline;gap:12px;padding-top:12px} .photo-no{font:700 10px var(--mono);color:#898074} .photo-meta h3{margin:0;font-size:16px;font-weight:600}
@@ -120,8 +123,8 @@ footer{padding:52px 0 28px;border-top:1px solid var(--line);color:var(--ink)}
 .lightbox{position:fixed;inset:0;z-index:300;background:rgba(27,24,20,.92);display:grid;place-items:center;padding:30px;opacity:0;visibility:hidden;transition:.25s} .lightbox.open{opacity:1;visibility:visible} .lightbox img{max-width:min(1200px,94vw);max-height:88vh;object-fit:contain;box-shadow:0 25px 80px rgba(0,0,0,.28)} .lightbox-close{position:absolute;top:18px;right:20px;border:0;background:transparent;color:#fff;font:700 12px var(--mono);letter-spacing:.12em;cursor:pointer;padding:12px}
 
 @media(max-width:950px){.photo-grid{grid-template-columns:repeat(2,1fr)}.section-head{align-items:flex-start}}
-@media(max-width:620px){.wrap{width:calc(100% - 28px)}.header-inner{height:64px}.brand img{height:24px}nav{gap:16px;font-size:14px}.hero-gallery{aspect-ratio:4/3}.store-controls{padding:8px 12px;gap:6px;flex-wrap:wrap}.hero-dots{gap:6px}.hero-dot{width:24px}.store-counter{font-size:14px}.store-actions{gap:0}.store-actions button{min-width:40px}.store-actions .store-pause{padding:0 6px}.philosophy{padding:78px 22px}.philosophy h1{font-size:35px}.philosophy-copy{font-size:16px}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:14px}.photo-grid{grid-template-columns:1fr;gap:28px}.photo-open{aspect-ratio:3/2}.photo-meta{padding-top:9px}.story-band{grid-template-columns:1fr}.lightbox{padding:12px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro,.intro-brand,.intro-trace,.intro-word,.intro-wipe,.intro-photo{animation:none!important;transition:none!important}.intro-trace{stroke-dashoffset:0;visibility:visible}.intro-wipe{width:360px}.intro-word.en,.intro-word.jp,.intro-photo{display:none}.intro-word.kr{opacity:1}.hero-slide,.photo-open img{transition:none}}
+@media(max-width:620px){.wrap{width:calc(100% - 28px)}.header-inner{height:64px}.brand img{height:24px}nav{gap:12px;font-size:14px}.hero-gallery{aspect-ratio:4/3}.store-controls{padding:8px 12px;gap:6px;flex-wrap:wrap}.hero-dots{gap:6px}.hero-dot{width:24px}.store-counter{font-size:14px}.store-actions{gap:0}.store-actions button{min-width:40px}.store-actions .store-pause{padding:0 6px}.philosophy{padding:78px 22px}.philosophy h1{font-size:35px}.philosophy-copy{font-size:16px}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:14px}.photo-grid{grid-template-columns:1fr;gap:28px}.photo-open{aspect-ratio:3/2}.photo-meta{padding-top:9px}.story-band{grid-template-columns:1fr}.lightbox{padding:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro,.intro-brand,.intro-trace,.intro-word,.intro-wipe,.intro-photo{animation:none!important;transition:none!important}.intro-trace{stroke-dashoffset:0;visibility:visible}.intro-mark-original{animation:none!important;opacity:1}.intro-wipe{width:360px}.intro-word.en,.intro-word.jp,.intro-photo{display:none}.intro-word.kr{opacity:1}.hero-slide,.photo-open img{transition:none}}
 </style>
 </head>
 <body>
@@ -135,13 +138,19 @@ footer{padding:52px 0 28px;border-top:1px solid var(--line);color:var(--ink)}
           <filter id="logoInk" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
             <feColorMatrix type="matrix" values="0 0 0 0 .176  0 0 0 0 .161  0 0 0 0 .137  -1 -1 -1 0 2.2"/>
           </filter>
-          <mask id="squareDrawing" maskUnits="userSpaceOnUse" x="113" y="126" width="518" height="388">
-            <path class="intro-trace" pathLength="1" style="--draw-duration:1.250000000s;--draw-delay:0.100000000s" d="M 231,494 L 223,148 L 560,143 L 560,493 Z"/>
-            <path class="intro-trace" pathLength="1" style="--draw-duration:0.919558723s;--draw-delay:0.430441277s" d="M 324,494 L 326,284 L 614,284 L 618,494 Z"/>
-            <path class="intro-trace" pathLength="1" style="--draw-duration:0.757226676s;--draw-delay:0.592773324s" d="M 135,495 L 132,373 L 420,365 L 421,494 Z"/>
+          <!-- Clip drawing ink to the source silhouette, never reveal the full image with a broad moving brush. -->
+          <mask id="squareInk" maskUnits="userSpaceOnUse" x="113" y="126" width="518" height="388" style="mask-type:alpha">
+            <image href="assets/logo_kr.png" width="750" height="750" filter="url(#logoInk)"/>
           </mask>
+          <clipPath id="squareMarkBounds"><rect x="113" y="126" width="518" height="388"/></clipPath>
         </defs>
-        <g mask="url(#squareDrawing)"><image href="assets/logo_kr.png" width="750" height="750" filter="url(#logoInk)"/></g>
+        <g mask="url(#squareInk)">
+          <path class="intro-trace" pathLength="1" style="--draw-duration:1.250000000s;--draw-delay:0.100000000s" d="M 231,494 L 223,148 L 560,143 L 560,493 Z"/>
+          <path class="intro-trace" pathLength="1" style="--draw-duration:0.919558723s;--draw-delay:0.430441277s" d="M 324,494 L 326,284 L 614,284 L 618,494 Z"/>
+          <path class="intro-trace" pathLength="1" style="--draw-duration:0.757226676s;--draw-delay:0.592773324s" d="M 135,495 L 132,373 L 420,365 L 421,494 Z"/>
+        </g>
+        <!-- Restore every hand-drawn edge only after all three paths have finished. -->
+        <image class="intro-mark-original" href="assets/logo_kr.png" width="750" height="750" filter="url(#logoInk)" clip-path="url(#squareMarkBounds)"/>
       </svg>
       <div class="intro-words">
         <!-- The supplied English PNG duplicates the Japanese logo. Use live lettering until an English original is supplied. -->
@@ -154,7 +163,7 @@ footer{padding:52px 0 28px;border-top:1px solid var(--line);color:var(--ink)}
   </div>
 </div>
 
-<header><div class="wrap header-inner"><a class="brand" href="#top"><img src="assets/logo_en.png" alt="Sando.li"></a><nav><a href="#top">Home</a><a href="#sando">Sando</a><a href="#story">Story</a></nav></div></header>
+<header><div class="wrap header-inner"><a class="brand" href="#top"><img src="assets/logo_en.png" alt="Sando.li"></a><nav><a href="#top">Home</a><a href="#sando">Sando</a><a href="#mochi">Mochi</a><a href="#story">Story</a></nav></div></header>
 
 <main id="top">
 <section class="store-hero" aria-label="산도리 매장 사진">
@@ -225,7 +234,43 @@ footer{padding:52px 0 28px;border-top:1px solid var(--line);color:var(--ink)}
     </article></div>
 </div></section>
 
-<section class="section"><div class="wrap"><div class="story-note"><h3>계절에 따라 달라지는 산도</h3><p>과일 수급과 계절에 따라 메뉴는 달라질 수 있습니다. 그날 준비한 산도와 모찌는 매장 및 공식 채널에서 확인할 수 있습니다.</p></div></div></section>
+<section class="section" id="mochi" aria-labelledby="mochiTitle"><div class="wrap">
+  <div class="section-head"><div><small>MOCHI ARCHIVE</small><h2 id="mochiTitle">산도리의 모찌들</h2></div><p>쫀득한 떡 안에 담은 과일의 향과 달콤함.<br>산도리의 과일모찌를 만나보세요.</p></div>
+  <div class="photo-grid">
+    <article class="photo-card" data-title="여름딸기 모찌">
+      <button class="photo-open" type="button" aria-label="여름딸기 모찌 크게 보기" data-src="assets/mochi-summer-strawberry-1272.webp" data-alt="여름딸기 모찌">
+        <img loading="lazy" decoding="async" src="assets/mochi-summer-strawberry-720.webp" srcset="assets/mochi-summer-strawberry-720.webp 720w, assets/mochi-summer-strawberry-1272.webp 1272w" sizes="(max-width:620px) calc(100vw - 28px), (max-width:950px) calc((100vw - 60px) / 2), (max-width:1280px) calc((100vw - 80px) / 3), 400px" width="1272" height="1271" alt="여름딸기 모찌">
+      </button>
+      <div class="photo-meta"><span class="photo-no">01</span><h3>여름딸기 모찌</h3></div>
+    </article>
+    <article class="photo-card" data-title="메론 모찌">
+      <button class="photo-open" type="button" aria-label="메론 모찌 크게 보기" data-src="assets/mochi-melon-1662.webp" data-alt="메론 모찌">
+        <img loading="lazy" decoding="async" src="assets/mochi-melon-720.webp" srcset="assets/mochi-melon-720.webp 720w, assets/mochi-melon-1280.webp 1280w, assets/mochi-melon-1662.webp 1662w" sizes="(max-width:620px) calc(100vw - 28px), (max-width:950px) calc((100vw - 60px) / 2), (max-width:1280px) calc((100vw - 80px) / 3), 400px" width="1662" height="1662" alt="메론 모찌">
+      </button>
+      <div class="photo-meta"><span class="photo-no">02</span><h3>메론 모찌</h3></div>
+    </article>
+    <article class="photo-card" data-title="골드키위 모찌">
+      <button class="photo-open" type="button" aria-label="골드키위 모찌 크게 보기" data-src="assets/mochi-gold-kiwi-1920.webp" data-alt="골드키위 모찌">
+        <img loading="lazy" decoding="async" src="assets/mochi-gold-kiwi-720.webp" srcset="assets/mochi-gold-kiwi-720.webp 720w, assets/mochi-gold-kiwi-1280.webp 1280w, assets/mochi-gold-kiwi-1920.webp 1920w" sizes="(max-width:620px) calc(100vw - 28px), (max-width:950px) calc((100vw - 60px) / 2), (max-width:1280px) calc((100vw - 80px) / 3), 400px" width="2006" height="2006" alt="골드키위 모찌">
+      </button>
+      <div class="photo-meta"><span class="photo-no">03</span><h3>골드키위 모찌</h3></div>
+    </article>
+    <article class="photo-card" data-title="샤인머스켓 모찌">
+      <button class="photo-open" type="button" aria-label="샤인머스켓 모찌 크게 보기" data-src="assets/mochi-shine-muscat-1710.webp" data-alt="샤인머스켓 모찌">
+        <img loading="lazy" decoding="async" src="assets/mochi-shine-muscat-720.webp" srcset="assets/mochi-shine-muscat-720.webp 720w, assets/mochi-shine-muscat-1280.webp 1280w, assets/mochi-shine-muscat-1710.webp 1710w" sizes="(max-width:620px) calc(100vw - 28px), (max-width:950px) calc((100vw - 60px) / 2), (max-width:1280px) calc((100vw - 80px) / 3), 400px" width="1710" height="1710" alt="샤인머스켓 모찌">
+      </button>
+      <div class="photo-meta"><span class="photo-no">04</span><h3>샤인머스켓 모찌</h3></div>
+    </article>
+    <article class="photo-card" data-title="파인애플 모찌">
+      <button class="photo-open" type="button" aria-label="파인애플 모찌 크게 보기" data-src="assets/mochi-pineapple-1920.webp" data-alt="파인애플 모찌">
+        <img loading="lazy" decoding="async" src="assets/mochi-pineapple-720.webp" srcset="assets/mochi-pineapple-720.webp 720w, assets/mochi-pineapple-1280.webp 1280w, assets/mochi-pineapple-1920.webp 1920w" sizes="(max-width:620px) calc(100vw - 28px), (max-width:950px) calc((100vw - 60px) / 2), (max-width:1280px) calc((100vw - 80px) / 3), 400px" width="1987" height="1987" alt="파인애플 모찌">
+      </button>
+      <div class="photo-meta"><span class="photo-no">05</span><h3>파인애플 모찌</h3></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap"><div class="story-note"><h3>계절에 따라 달라지는 산도와 모찌</h3><p>과일 수급과 계절에 따라 메뉴는 달라질 수 있습니다. 그날 준비한 산도와 모찌는 매장 및 공식 채널에서 확인할 수 있습니다.</p></div></div></section>
 </main>
 <footer>
   <div class="wrap">
